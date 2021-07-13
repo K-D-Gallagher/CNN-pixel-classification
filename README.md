@@ -8,7 +8,7 @@
   * [Pixel classification tools](#pixel-classification-tools)
   * [Example usage](#example-usage)
     * [Training a new model and pixel classifying data](#training-a-new-model-and-pixel-classifying-data)
-    * [Using a pre-trained model to pixel classify your own data](#using-a-pre---trained-model-to-pixel-classify-your-own-data)
+    * [Using a pre-trained model to pixel classify your own data](#using-a-pre-trained-model-to-pixel-classify-your-own-data)
   * [Individual functions](#individual-functions)
     * [augmentation.py](#augmentationpy)
     * [train.py](#trainpy)
