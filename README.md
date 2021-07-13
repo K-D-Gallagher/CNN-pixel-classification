@@ -1,45 +1,33 @@
 # Time-Lapse-Microscopy-Toolkit
 
-This toolkit provides: 
-  * Image segmentation 
-    * Five CNN architectures
-    * Thirteen encoders with pre-trained weights
-    * Augmentation 
-  * Cell counter
-  * Cell tracking  
-  * No coding required 
+## Table of contents
+  * [Installation](#installation)
+  * [Image segmentation](#segmentation)
+    * [Five CNN architectures](#architectures)
+    * [Thirteen encoders with pre-trained weights](#encoders)
+    * [Augmentation](#augmentation)
+  * [Training your own model](#training)
+  * [Visualizing prediction quality as a function of training time](#predict-lapse)
+  * [Segmenting new data](#prediction)
+  * [Example of training new model and predicting on data](#example)
+  * [Example of segmenting new data using pre-trained model]
 - - - - 
 
-  ## Example ##
+## Installation ##
+Create a folder called Time_Lapse_Microscopy_Toolkit.
 
 ``` shell script
-# Create a static library of augmented images
-> python augmentation.py -imf images -msf masks -a 4 -imfn train_images -mskfn train_masks -s 768 -gs True
 
-# Train the model with the augmented and original images. The UNet++ architecture and inceptionv4 encoder resulted in the most accurate segmentation according to our tests.
-> python train.py -e 200 -b 4 -cp Segmentation_test/ -fn train_images/ -mf train_masks/ -en resnet18 -wt imagenet -a unetplusplus
-
-# Monitor the training using Tensorboard
-> python tensorboard --logdir=Segmentation_test
-
-# Use predict lapse to determine which epoch produced the best results
-> python predict_lapse.py -f Segmentation_test -n test_folder -en resnet18 -wt imagenet -a unetplusplus
-
-# Make predictions using the trained model 
-> python predict.py -m Segmentation_test/CP_epoch11.pth -i images/ -t 0.1 -en resnet18 -wt imagenet -a unetplusplus
-
-# Move the predictions from the source folder to a new folder (e.g., predictions)
-> python cell_tracking.py -f predictions
-
+$ git clone https://github.com/nathanBurg/Time-Lapse-Microscopy-Toolkit.git Time_Lapse_Microscopy_Toolkit
+$ pip3 install -r /path/to/Time_Lapse_Microscopy_Toolkit/requirements.txt 
 
 ```
 
 ## Segmentation  ##
 
-This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package to provide a wide range of CNN architectures and encoders for image segmentation. 
+This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package to provide a range of CNN architectures and encoders for image segmentation. 
 
 #### Architectures ####
-
 * Unet
 * UnetPlusPlus
 * MAnet
@@ -53,16 +41,6 @@ This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/se
 <p align="center">
   <img width="586" alt="Screen Shot 2021-05-30 at 2 57 44 PM" src="https://user-images.githubusercontent.com/58287074/120590926-26798e80-c3f0-11eb-82bd-7fd6b4d06903.png">
 </p>
-
-## Cell Counting and Tracking ##
-  
-After segmentation, this package uses the [Trackpy](https://github.com/soft-matter/trackpy "Trackpy") package for cell counting and tracking. When cell_tracking.py is run, the program displays the centroids of a sample image, the total movement of each cell, prints the mean number of cells per frame, the total number of tracks, the mean track distance, and returns a Pandas data structure with raw data on every frame. 
-
-<p float="center">
-  <img width="400" height="300"alt="Screen Shot 2021-06-02 at 10 43 23 PM" src="https://user-images.githubusercontent.com/58287074/120593437-5cb90d00-c3f4-11eb-8635-3972614ebdfc.png">
-  <img width="400" alt="Screen Shot 2021-06-02 at 10 44 31 PM" src="https://user-images.githubusercontent.com/58287074/120593632-a0ac1200-c3f4-11eb-8c3d-807d148641b8.png">
-</p>
-
 
 ### Augmentation ###
 
@@ -201,32 +179,26 @@ optional arguments:
                         
   ```
   
-  
-  ### Cell Counting and Tracking ###
-  
-  ``` shell script
-> python cell_tracking.py -h
-usage: cell_tracking.py [-h] --folder FOLDER
-
-Count and track cells
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --folder FOLDER, -f FOLDER
-                        path to image folder (default: None)
-                        
-```
-
-## Installation ##
-Create a folder called Time_Lapse_Microscopy_Toolkit.
+  ## Example ##
 
 ``` shell script
+# Create a static library of augmented images
+> python augmentation.py -imf images -msf masks -a 4 -imfn train_images -mskfn train_masks -s 768 -gs True
 
-$ git clone https://github.com/nathanBurg/Time-Lapse-Microscopy-Toolkit.git Time_Lapse_Microscopy_Toolkit
-$ pip3 install -r /path/to/Time_Lapse_Microscopy_Toolkit/requirements.txt 
+# Train the model with the augmented and original images. The UNet++ architecture and inceptionv4 encoder resulted in the most accurate segmentation according to our tests.
+> python train.py -e 200 -b 4 -cp Segmentation_test/ -fn train_images/ -mf train_masks/ -en resnet18 -wt imagenet -a unetplusplus
+
+# Monitor the training using Tensorboard
+> python tensorboard --logdir=Segmentation_test
+
+# Use predict lapse to determine which epoch produced the best results
+> python predict_lapse.py -f Segmentation_test -n test_folder -en resnet18 -wt imagenet -a unetplusplus
+
+# Make predictions using the trained model 
+> python predict.py -m Segmentation_test/CP_epoch11.pth -i images/ -t 0.1 -en resnet18 -wt imagenet -a unetplusplus
+
 
 ```
-
   
 
   
