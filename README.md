@@ -4,11 +4,9 @@
   * [Introduction](#introduction)
   * [Installation](#installation)
   * [Pixel classification tools](#pixel-classification-tools)
-    * [Five CNN architectures](#architectures)
-    * [Thirteen encoders with pre-trained weights](#encoders)
   * [Example usage](#example-usage)
     * [Training a new model and pixel classifying data](#training-a-new-model-and-pixel-classifying-data)
-    * [Using a pre-trained model to pixel classify your own data](#using-a-pre---trained-model-to-pixel-classify-your-own-data)
+    * [Using a pre-trained model to pixel classify your own data](#using-a-pre--trained-model-to-pixel-classify-your-own-data)
   * [Individual functions](#individual-functions)
     * [augmentation.py](#augmentationpy)
     * [train.py](#trainpy)
@@ -35,33 +33,12 @@ $ pip3 install -r /path/to/Time_Lapse_Microscopy_Toolkit/requirements.txt
 This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package to provide a range of CNN architectures and encoders for image segmentation. 
 
 #### Architectures
-* Unet
-* UnetPlusPlus
-* MAnet
-* Linknet
-* FPN
-* PSPNet
-* PAN
-* DeepLabV3
-* DeepLabV3+
+
+Unet, UnetPlusPlus, MAnet, Linknet, FPN, PSPNet, PAN, DeepLabV3, DeepLabV3+
 
 #### Encoders
 
-* ResNet
-* ResNeXt
-* ResNeSt
-* Res2Ne(X)t
-* RegNet(x/y)
-* GERNet
-* SE-Net
-* SK-Net
-* SK-ResNe(X)t
-* DenseNet
-* Inception
-* EfficientNet
-* MobileNet
-* DPN
-* VGG
+ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-ResNe(X)t, DenseNet, Inception, EfficientNet, MobileNet, DPN, VGG
 
 <p align="center">
   <img width="586" alt="Screen Shot 2021-05-30 at 2 57 44 PM" src="https://user-images.githubusercontent.com/58287074/120590926-26798e80-c3f0-11eb-82bd-7fd6b4d06903.png">
