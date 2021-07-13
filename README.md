@@ -8,8 +8,8 @@
     * [Thirteen encoders with pre-trained weights](#encoders)
     * [Augmentation](#augmentation)
   * [Training your own model](#training)
-  * [Visualizing prediction quality as a function of training time](#predict-lapse)
-  * [Segmenting new data](#prediction)
+  * [Visualizing prediction quality as a function of training time](#visualizing-prediction-quality-as-a-function-of-training-time)
+  * [Using predict.py to pixel classify new data](#using-predictpy-to-pixel-classify-new-data)
   * [Example of training new model and predicting on data](#training-new-model-and-predicting-on-data)
   * [Example of pixel classifying new data using pre-trained model](#pixel-classifying-new-data-using-pre---trained-model)
 - - - - 
@@ -136,7 +136,7 @@ optional arguments:
                                               
 ```
 
-## Predict Lapse
+## Visualizing prediction quality as a function of training time
 
 ``` shell script 
 
@@ -163,7 +163,7 @@ optional arguments:
   -n NAME, --name NAME  Name for image folder (default: None)
 ```
 
-## Prediction
+## Using predict.py to pixel classify new data
 
 ``` shell script
 
