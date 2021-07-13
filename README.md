@@ -1,14 +1,14 @@
 # Time-Lapse-Microscopy-Toolkit
 
 ## Table of contents
-  * [Introduction)(#introduction)
+  * [Introduction](#introduction)
   * [Installation](#installation)
   * [Pixel classification tools](#pixel-classification-tools)
     * [Five CNN architectures](#architectures)
     * [Thirteen encoders with pre-trained weights](#encoders)
   * [Example usage](#example-usage)
-    * [Example of training a new model and predicting on data](#training-a-new-model-and-predicting-on-data)
-    * [Example of using a pre-trained model to pixel classify your own data](#using-a-pre---trained-model-to-pixel-classify-your-own-data)
+    * [Training a new model and pixel classifying data](#training-a-new-model-and-pixel-classifying-data)
+    * [Using a pre-trained model to pixel classify your own data](#using-a-pre---trained-model-to-pixel-classify-your-own-data)
   * [Individual functions](#individual-functions)
     * [augmentation.py](#augmentationpy)
     * [train.py](#trainpy)
@@ -69,7 +69,7 @@ This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/se
 
 # Example usage
 
-## Training a new model and predicting on data
+## Training a new model and pixel classifying data
 
 ``` shell script
 # Create a static library of augmented images
