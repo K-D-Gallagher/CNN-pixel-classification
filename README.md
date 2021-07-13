@@ -12,7 +12,7 @@
   * [Individual functions](#individual-functions)
     * [augmentation.py](#augmentationpy)
     * [train.py](#trainpy)
-    * [Visualizing prediction quality as a function of training time (predict-lapse.py)](#visualizing-prediction-quality-as-a-function-of-training-time-predict---lapsepy)
+    * [Visualizing prediction quality as a function of training time (predict_lapse.py)](#visualizing-prediction-quality-as-a-function-of-training-time-predict_lapsepy)
     * [predict.py](#predictpy)
 - - - - 
 
