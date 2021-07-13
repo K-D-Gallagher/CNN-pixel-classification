@@ -1,4 +1,4 @@
-# Time-Lapse-Microscopy-Toolkit
+# CNN-pixel-classification
 
 &nbsp;
 
@@ -25,12 +25,12 @@ This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/se
 &nbsp;
 
 # Installation
-Create a folder called Time_Lapse_Microscopy_Toolkit.
+Create a folder called CNN-pixel-classification.
 
 ``` shell script
 
-$ git clone https://github.com/nathanBurg/Time-Lapse-Microscopy-Toolkit.git Time_Lapse_Microscopy_Toolkit
-$ pip3 install -r /path/to/Time_Lapse_Microscopy_Toolkit/requirements.txt 
+$ git clone https://github.com/K-D-Gallagher/CNN-pixel-classification.git
+$ pip3 install -r /path/to/CNN-pixel-classification/requirements.txt 
 
 ```
 
