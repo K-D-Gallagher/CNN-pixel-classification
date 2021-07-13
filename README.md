@@ -23,7 +23,7 @@ This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/se
 &nbsp;
 
 # Installation
-In terminal, navigate to the folder where you would like to locally install files and run the following commands. It will clone this repository, creating a folder called 'CNN-pixel-classification', and will install the necessary python requirements. Note, this code is compatible with Python 3.7.
+In terminal, navigate to the folder where you would like to locally install files and run the following commands. It will clone this repository, creating a folder called 'CNN-pixel-classification', and will install the necessary python requirements. Note, this code is compatible with Python 3.8.
 
 ``` shell script
 
