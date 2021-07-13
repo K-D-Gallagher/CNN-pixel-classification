@@ -48,15 +48,13 @@ Unet, UnetPlusPlus, MAnet, Linknet, FPN, PSPNet, PAN, DeepLabV3, DeepLabV3+
 
 ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-ResNe(X)t, DenseNet, Inception, EfficientNet, MobileNet, DPN, VGG
 
-<p align="center">
-  <img width="586" alt="Screen Shot 2021-05-30 at 2 57 44 PM" src="https://user-images.githubusercontent.com/58287074/120590926-26798e80-c3f0-11eb-82bd-7fd6b4d06903.png">
-</p>
-
 &nbsp;
 
 # Example usage
 
 ## Training a new model and pixel classifying data
+
+The following code illustrates the order of operations for training your own model from scratch with your own training data. Note, in order to do this, you will need at least ~100 images and corresponding 'ground truth' labels - i.e. binary images of the same dimensionality as the raw images where pixels 0s correspond to cell interiors / background padding and 1s correspond to cell edges. More detailed explanations of each python function can be found below.
 
 ``` shell script
 # Create a static library of augmented images
@@ -81,7 +79,7 @@ ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-Re
 
 ## Using a pre-trained model to pixel classify your own data
 
-Need to populate
+The following code illustrates the order of operations for using our provided pre-trained model in order to pixel classify your own images. There are two requirements for your images: 1) they should be 8-bit and 2) they should be 768 x 768 pixels.
 
 &nbsp;
 
@@ -163,6 +161,8 @@ optional arguments:
 &nbsp;
 
 ## Visualizing prediction quality as a function of training time (predict_lapse.py)
+
+We found that looking at the loss curve and dice coefficient alone was not always the best indicator of a model's accuracy. Therefore, we developed a piece of code that will visualize the output of the same image as it is pixel classified with all the training epochs of a model in the specified folder.
 
 ``` shell script 
 
