@@ -162,7 +162,7 @@ optional arguments:
 
 ## Visualizing prediction quality as a function of training time (predict_lapse.py)
 
-We found that looking at the loss curve and dice coefficient alone was not always the best indicator of a model's accuracy. Therefore, we developed a piece of code that will visualize the output of the same image as it is pixel classified with all the training epochs of a model in the specified folder.
+We found that looking at the loss curve and dice coefficient alone was not always the best indicator of a model's accuracy. Therefore, we developed a piece of code that will visualize the output of the same image as it is pixel classified with all the training epochs of a model in the specified folder. By qualitatively evaluating these predictions, paired with evaluation of their loss and dice coefficient curves, you can select the best epoch of your trained model to use for batch predicting the rest of your data.
 
 ``` shell script 
 
