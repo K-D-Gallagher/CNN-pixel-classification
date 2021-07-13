@@ -36,13 +36,13 @@ $ pip3 install -r /path/to/CNN-pixel-classification/requirements.txt
 
 # Pixel classification tools
 
-Our package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package in order to provide a range of CNN architectures and pre-trained encoders, facilitating the discovery and training of the most accurate pixel classification model. By using pre-trained encoders that have been trained on vastly larger datasets than our own, paired with un-trained decoders of a chosen architecture, we are able to achieve higher pixel classification accuracy than could be achieved without such transfer-learning. Segmentation Models Pytorch provides the following architectures and encoders:
+Our package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package in order to provide a range of CNN architectures and pre-trained encoders, facilitating the discovery and training of the most accurate pixel classification model. By using pre-trained encoders that have been trained on vastly larger datasets than our own, paired with un-trained decoders that can trained to classify pixels in our epithelial data, we are able to achieve higher pixel classification accuracy than could be obtained without using transfer-learning. Segmentation Models Pytorch provides the following architectures and encoders:
 
-#### Architectures
+#### Architectures:
 
 Unet, UnetPlusPlus, MAnet, Linknet, FPN, PSPNet, PAN, DeepLabV3, DeepLabV3+
 
-#### Encoders
+#### Encoders:
 
 ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-ResNe(X)t, DenseNet, Inception, EfficientNet, MobileNet, DPN, VGG
 
@@ -52,7 +52,7 @@ ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-Re
 
 ## Training a new model and pixel classifying data
 
-The following code illustrates the order of operations for training your own model from scratch with your own training data. Note, in order to do this, you will need at least ~100 images and corresponding 'ground truth' labels - i.e. binary images of the same dimensionality as the raw images where pixels 0s correspond to cell interiors / background padding and 1s correspond to cell edges. More detailed explanations of each python function can be found below.
+The following code illustrates the order of operations for training your own model from scratch with your own training data. Note, in order to do this, you will need at least ~100 images and corresponding 'ground truth' labels - i.e. binary images of the same dimensionality as the corresponding raw images where 0s correspond to cell interiors / background padding and 1s correspond to cell edges. A more detailed explanation of each python function can be found below.
 
 ``` shell script
 # Create a static library of augmented images
@@ -84,6 +84,8 @@ The following code illustrates the order of operations for using our provided pr
 # Individual functions
 
 ## augmentation.py
+
+Augmentation allows you to artificially expand your training library volume by creating copies of all the training images that are randomly perturbed in defined ways, such as through rotations, shears, scale change, and the introduction of noise. Generally, augmentation can improve model performance because the accuracy of CNNs scales with training data volume. Additionally, augmentation can improve the generalizability of your model (it's ability to predict on out of sample data) by increasing the variation in your training data library. We chose to create a static library of augmented images, rather than augmenting during the training process. Therefore, this function should be used prior to the training function.
 
 ``` shell script
 
