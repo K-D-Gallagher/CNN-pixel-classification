@@ -1,7 +1,5 @@
 # CNN-pixel-classification
 
-&nbsp;
-
 ## Table of contents
   * [Introduction](#introduction)
   * [Installation](#installation)
