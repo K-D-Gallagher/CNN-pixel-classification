@@ -1,5 +1,7 @@
 # Time-Lapse-Microscopy-Toolkit
 
+&nbsp;
+
 ## Table of contents
   * [Introduction](#introduction)
   * [Installation](#installation)
@@ -14,9 +16,13 @@
     * [predict.py](#predictpy)
 - - - - 
 
+&nbsp;
+
 # Introduction
 
 This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") toolkit and is geared towards pixel classification of cell edges within epithelial tissues in microscopy data. Pixel classification is a prerequesite step for segmentation and detection of epithelial cells within this type of microscopy data, which can be completed using our other github repository, [eye-patterning](https://github.com/K-D-Gallagher/eye-patterning). We are included a [pre-trained model](#pixel-classifying-new-data-using-pre---trained-model) that can be used to quickly segment your own data, as well as the tools necessary to [train your own model](#training-new-model-and-predicting-on-data) from stratch and using this to pixel classify your own data.
+
+&nbsp;
 
 # Installation
 Create a folder called Time_Lapse_Microscopy_Toolkit.
@@ -27,6 +33,8 @@ $ git clone https://github.com/nathanBurg/Time-Lapse-Microscopy-Toolkit.git Time
 $ pip3 install -r /path/to/Time_Lapse_Microscopy_Toolkit/requirements.txt 
 
 ```
+
+&nbsp;
 
 # Pixel classification tools
 
@@ -43,6 +51,8 @@ ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-Re
 <p align="center">
   <img width="586" alt="Screen Shot 2021-05-30 at 2 57 44 PM" src="https://user-images.githubusercontent.com/58287074/120590926-26798e80-c3f0-11eb-82bd-7fd6b4d06903.png">
 </p>
+
+&nbsp;
 
 # Example usage
 
@@ -70,6 +80,8 @@ ResNet, ResNeXt, ResNeSt, Res2Ne(X)t, RegNet(x/y), GERNet, SE-Net, SK-Net, SK-Re
 ## Using a pre-trained model to pixel classify your own data
 
 Need to populate
+
+&nbsp;
 
 # Individual functions
 
@@ -104,6 +116,8 @@ optional arguments:
   --grayscale, -gs      Make all the augmented images grayscale (default:
                         False)
 ```
+
+&nbsp;
 
 ## train.py
 
@@ -144,6 +158,8 @@ optional arguments:
                                               
 ```
 
+&nbsp;
+
 ## Visualizing prediction quality as a function of training time (predict_lapse.py)
 
 ``` shell script 
@@ -170,6 +186,8 @@ optional arguments:
                         filenames of input images (default: None)
   -n NAME, --name NAME  Name for image folder (default: None)
 ```
+
+&nbsp;
 
 ## predict.py
 
