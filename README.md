@@ -20,12 +20,12 @@
 
 # Introduction
 
-This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") toolkit and is geared towards pixel classification of cell edges within epithelial tissues in microscopy data. Pixel classification is a prerequesite step for segmentation and detection of epithelial cells within this type of microscopy data, which can be completed using our other github repository, [eye-patterning](https://github.com/K-D-Gallagher/eye-patterning). We are included a [pre-trained model](#pixel-classifying-new-data-using-pre---trained-model) that can be used to quickly segment your own data, as well as the tools necessary to [train your own model](#training-new-model-and-predicting-on-data) from stratch and using this to pixel classify your own data.
+This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") toolkit and is geared towards pixel classification of cell edges within microscopy data of epithelial tissues. Pixel classification is a prerequesite step for segmentation and detection of epithelial cells within this type of microscopy data, which can be completed using our other github repository, [eye-patterning](https://github.com/K-D-Gallagher/eye-patterning). We are included a [pre-trained model](#pixel-classifying-new-data-using-pre---trained-model) that can be used to quickly segment your own data; this model is trained on epithelial tissue where cell edges have been labeled with fluorescent protein fushion tags and where images were collected using laser scanning confocal microscopy. We also provide the tools necessary to [train your own model](#training-new-model-and-predicting-on-data) from stratch and use this to pixel classify your own data.
 
 &nbsp;
 
 # Installation
-Create a folder called CNN-pixel-classification.
+In terminal, navigate to the folder where you would like to locally install files and run the following commands. It will clone this repository, creating a folder called 'CNN-pixel-classification' and will install the necessary python requirements. Note, this code is compatible with Python 3.7.
 
 ``` shell script
 
@@ -38,7 +38,7 @@ $ pip3 install -r /path/to/CNN-pixel-classification/requirements.txt
 
 # Pixel classification tools
 
-This package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package to provide a range of CNN architectures and encoders for image segmentation. 
+Our package uses the [Segmentation Models Pytorch](https://github.com/qubvel/segmentation_models.pytorch "Segmentation Models Pytorch") package in order to provide a range of CNN architectures and pre-trained encoders, facilitating the discovery and training of the most accurate pixel classification model. By using pre-trained encoders that have been trained on vastly larger datasets than our own, paired with un-trained decoders of a chosen architecture, we are able to achieve higher pixel classification accuracy than could be achieved without such transfer-learning. Segmentation Models Pytorch provides the following architectures and encoders:
 
 #### Architectures
 
