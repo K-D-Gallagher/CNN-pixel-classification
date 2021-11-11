@@ -82,6 +82,11 @@ def eval_net(net, loader, device):
     return tot / n_val
 
 
+
+################################################################################
+# class for preprocessing images
+################################################################################
+
 from os.path import splitext
 from os import listdir
 import numpy as np
@@ -90,8 +95,9 @@ from torch.utils.data import Dataset
 import logging
 from PIL import Image
 
+class PreProcessData(Dataset):
 
-class BasicDataset(Dataset):
+    # constructor - this is where we take the arguments
     def __init__(self, imgs_dir, masks_dir, scale=1, mask_suffix=""):
         self.imgs_dir = imgs_dir
         self.masks_dir = masks_dir
@@ -99,14 +105,23 @@ class BasicDataset(Dataset):
         self.mask_suffix = mask_suffix
         assert 0 < scale <= 1, "Scale must be between 0 and 1"
 
+        # splits filename by extension and only holds onto the name
         self.ids = [
             splitext(file)[0] for file in listdir(imgs_dir) if not file.startswith(".")
         ]
         logging.info(f"Creating dataset with {len(self.ids)} examples")
 
+    # this is called overloading:
+    # redefining the length function for this class as the number of files, rather
+    # than the length of the filepath, which it would be otherwise
     def __len__(self):
         return len(self.ids)
 
+    ##############
+    #
+    ##############
+
+    # class method means that this function is only available within this class
     @classmethod
     def preprocess(cls, pil_img, scale):
         w, h = pil_img.size
@@ -126,7 +141,12 @@ class BasicDataset(Dataset):
 
         return img_trans
 
+    ###########
+    #
+    ############
     def __getitem__(self, i):  # matches mask and image and preprosses images
+
+        # within this class, how do we pull out the element at this index
         idx = self.ids[i]
 
         mask_file = glob(self.masks_dir + idx + "_mask.*")
